@@ -2,6 +2,12 @@
 
 #master-boot-script.sh
 
+# install iRODS client
+yum install --assumeyes wget
+rpm --import https://packages.irods.org/irods-signing-key.asc
+wget --quiet --output-document=/etc/yum.repos.d/renci-irods.yum.repo https://packages.irods.org/renci-irods.yum.repo
+yum install --assumeyes irods-icommands
+
 #setup paswordless ssh to workers
 cp /home/cc/id_rsa_scidas /root/.ssh/id_rsa
 cp /home/cc/id_rsa_scidas.pub /root/.ssh/id_rsa.pub
